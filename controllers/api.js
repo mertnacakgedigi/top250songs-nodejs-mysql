@@ -1,12 +1,40 @@
 const getList = (req,res) => {
-    var sql="SELECT * FROM songs"
+    var sql="SELECT songs.id,songs.name,songs.artist,COUNT(ratings.rating) as c, AVG(ratings.rating) as a FROM songs LEFT JOIN ratings ON ratings.song_id=songs.id GROUP BY songs.name ORDER BY a desc"
     db.query(sql,(err,result)=>{
         if (err) console.log(err)
-        console.log(result)
-        res.json(result)
+        res.status(200).json(result)
     })
 }
 
+const getRating = (req,res) => {
+
+    var sql="SELECT * FROM ratings"
+    db.query(sql,(err,result)=>{
+        if (err) console.log(err)
+        res.status(200).json(result)
+    })
+}
+
+const postRating = (req,res) => {
+    var sql = "INSERT INTO ratings SET ?";
+    db.query(sql,req.body,(err,result) => {
+        if (err) return res.status(500).json({ status: 500, message: err })
+        return res.status(200).json({ status: 200, message: "Ratings added",result })
+    })
+}
+
+const getUserRating = (req,res) => {
+    var sql = `select rating from ratings where ratings.user_id =${req.body.user_id} and song_id=${req.body.song_id}`
+    db.query(sql,(err,result) => {
+        if (err) return res.status(500).json({ status: 500, message: err })
+        return res.status(200).json({ status: 200, message: "User rating sent",result })
+    })
+}
+
+
 module.exports = {
     getList,
+    getRating,
+    postRating,
+    getUserRating
 }
