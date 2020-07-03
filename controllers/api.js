@@ -1,5 +1,9 @@
 const getList = (req,res) => {
-    var sql="SELECT songs.id,songs.name,songs.artist,COUNT(ratings.rating) as c,ratings.rating as r, AVG(ratings.rating) as a FROM songs LEFT JOIN ratings ON ratings.song_id=songs.id GROUP BY songs.name ORDER BY a desc"
+    var sql=`SELECT songs.image, songs.id,songs.name,songs.artist,COUNT(ratings.rating) as c,ratings.rating as r, AVG(ratings.rating) as a 
+    FROM songs 
+    LEFT JOIN ratings ON ratings.song_id=songs.id 
+    GROUP BY songs.name 
+    ORDER BY a desc`
     db.query(sql,(err,result)=>{
         if (err) console.log(err)
         res.status(200).json(result)
