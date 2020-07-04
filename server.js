@@ -11,7 +11,7 @@ const MySQLStore = require('express-mysql-session')(session);
 const PORT = process.env.PORT || 3030;
 
 const corsOptions = {
-    origin: [`http://localhost:3000`],
+    origin: [`http://localhost:3000`,`https://www.top250songs.com`],
     credentials: true, // allows the session cookie to be sent back and forth from server to client
     optionsSuccessStatus: 200 // some legacy browsers choke on status 204
 }
@@ -19,8 +19,8 @@ const corsOptions = {
 var options = {
     host: 'localhost',
     port: 3306,
-    user: 'root',
-    password: 'a1b2c3D4.',
+    user: 'mertyurr_123',
+    password: 'E3kURarqvnCT9Nk',
     database: 'top250songs',
 };
  
