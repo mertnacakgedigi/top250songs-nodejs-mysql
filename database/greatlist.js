@@ -1,6 +1,6 @@
 
 
-console.log()
+// Spotify Api
 var list = [
               
                {  "added_at": "2017-04-18T02:56:20Z",
