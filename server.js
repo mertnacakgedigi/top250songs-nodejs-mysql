@@ -17,16 +17,16 @@ const corsOptions = {
 }
 
 var options = {
-    host: 'localhost',
+    host: 'sql3.freesqldatabase.com',
     port: 3306,
-    user: 'mertyurr_123',
-    password: 'E3kURarqvnCT9Nk',
-    database: 'top250songs',
+    user: 'sql3352681',
+    password: 'D3dehdAEXW',
+    database: 'sql3352681',
 };
  
 
 
-// const con = mysql.createConnection(options);
+const con = mysql.createConnection(options);
 
 var sessionStore = new MySQLStore(options);
 
@@ -43,9 +43,9 @@ app.use(session({
 
 
 
-// con.connect();
+con.connect();
 
-// global.db = con;
+global.db = con;
 
 app.use(cors(corsOptions))
 
