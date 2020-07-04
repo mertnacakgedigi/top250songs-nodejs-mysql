@@ -26,7 +26,7 @@ var options = {
  
 
 
-const con = mysql.createConnection(options);
+// const con = mysql.createConnection(options);
 
 var sessionStore = new MySQLStore(options);
 
@@ -43,12 +43,9 @@ app.use(session({
 
 
 
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-});
+// con.connect();
 
-global.db = con;
+// global.db = con;
 
 app.use(cors(corsOptions))
 
