@@ -66,7 +66,7 @@ const login = (req,res) => {
 }
 
 const logout = (req, res) => {
-    if (!req.session.currentUser) return res.status(401).json({ status: 401, message: 'Unauthorized' });
+  
     req.session.destroy((err) => {
         if (err) return res.status(500).json({ status: 500, message: 'Something went wrong. Please try again' });
         res.sendStatus(200);
