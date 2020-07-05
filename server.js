@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3030;
 
 const corsOptions = {
 
-    credentials: true, // allows the session cookie to be sent back and forth from server to client
+    credentials: false, // allows the session cookie to be sent back and forth from server to client
     optionsSuccessStatus: 200 // some legacy browsers choke on status 204
 }
 
