@@ -47,7 +47,7 @@ con.connect();
 
 global.db = con;
 
-app.use(cors(corsOptions))
+app.use(cors())
 
             // Logging with Morgan
 app.use(morgan('tiny'))
