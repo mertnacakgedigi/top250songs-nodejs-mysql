@@ -17,11 +17,11 @@ const corsOptions = {
 }
 
 var options = {
-    host: 'sql3.freesqldatabase.com',
+    host: 'sql9.freemysqlhosting.net',
     port: 3306,
-    user: 'sql3352681',
-    password: 'D3dehdAEXW',
-    database: 'sql3352681',
+    user: 'sql9354781',
+    password: 'eQhURlBhkM',
+    database: 'sql9354781',
 };
  
 
