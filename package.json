@@ -16,6 +16,7 @@
     "url": "https://github.com/mertnacakgedigi/top250songs-nodejs-mysql/issues"
   },
   "dependencies": {
+    "aws-serverless-express": "^3.3.8",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -27,5 +28,8 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "req-flash": "0.0.3"
+  },
+  "devDependencies": {
+    "serverless": "^1.74.1"
   }
 }
