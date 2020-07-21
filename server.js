@@ -3,7 +3,7 @@ const mysql = require('mysql')
 const cors = require('cors')
 const morgan = require('morgan')
 require('dotenv').config()
-const routes = require('../routes')
+const routes = require('./routes')
 const session = require('express-session');
 const app = express();
 const bodyParser=require("body-parser");
@@ -11,7 +11,7 @@ const MySQLStore = require('express-mysql-session')(session);
 const PORT = process.env.PORT || 3030;
 
 const corsOptions = {
-    origin: "https://www.top250songs.com",
+
     credentials: false, // allows the session cookie to be sent back and forth from server to client
     optionsSuccessStatus: 200 // some legacy browsers choke on status 204
 }
@@ -43,12 +43,12 @@ app.use(session({
 
 
 
+
 con.connect();
 
 global.db = con;
 
-app.use(cors());
-
+app.use(cors())
 
             // Logging with Morgan
 app.use(morgan('tiny'))
@@ -77,4 +77,6 @@ app.use('/api/v1/auth', routes.auth)
 app.use('/api/v1/', routes.api)
 
 
-module.exports = app;
+app.listen(PORT,()=> {
+    console.log(`Server is running at localhost:${PORT}`)
+})
