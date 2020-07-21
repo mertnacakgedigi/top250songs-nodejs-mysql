@@ -10,11 +10,11 @@ const bodyParser=require("body-parser");
 const MySQLStore = require('express-mysql-session')(session);
 const PORT = process.env.PORT || 3030;
 
-// const corsOptions = {
+const corsOptions = {
 
-//     credentials: false, // allows the session cookie to be sent back and forth from server to client
-//     optionsSuccessStatus: 200 // some legacy browsers choke on status 204
-// }
+    credentials: false, // allows the session cookie to be sent back and forth from server to client
+    optionsSuccessStatus: 200 // some legacy browsers choke on status 204
+}
 
 var options = {
     host: 'sql9.freemysqlhosting.net',
@@ -47,7 +47,7 @@ con.connect();
 
 global.db = con;
 
-// app.use(cors())`
+app.use(cors());
 
 
             // Logging with Morgan
