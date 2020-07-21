@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql')
-// const cors = require('cors')
+const cors = require('cors')
 const morgan = require('morgan')
 require('dotenv').config()
 const routes = require('../routes')
