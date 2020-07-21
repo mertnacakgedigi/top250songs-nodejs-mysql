@@ -11,7 +11,7 @@ const MySQLStore = require('express-mysql-session')(session);
 const PORT = process.env.PORT || 3030;
 
 const corsOptions = {
-    origin: "'https://www.top250songs.com",
+    origin: "https://www.top250songs.com",
     credentials: false, // allows the session cookie to be sent back and forth from server to client
     optionsSuccessStatus: 200 // some legacy browsers choke on status 204
 }
@@ -61,7 +61,11 @@ app.use(bodyParser.json());
 
 
 
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://www.top250songs.com");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
  
 
 app.get('/', (req, res) => {
