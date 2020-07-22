@@ -15,6 +15,11 @@ const corsOptions = {
     credentials: true, // allows the session cookie to be sent back and forth from server to client
     optionsSuccessStatus: 200 // some legacy browsers choke on status 204
 }
+app.use(cors({origin : "http://localhost:3000"}))
+
+            // Logging with Morgan
+app.use(morgan('tiny'))
+  
 
 var options = {
     host: 'sql3.freemysqlhosting.net',
@@ -67,11 +72,7 @@ global.db = con;
 // });
  
 
-app.use(cors({origin : "http://localhost:3000"}))
 
-            // Logging with Morgan
-app.use(morgan('tiny'))
-  
 
 app.set('port', process.env.PORT || 8080);
 app.use(bodyParser.urlencoded({ extended: false }));
