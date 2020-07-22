@@ -1,10 +1,6 @@
 const bcrypt = require('bcrypt')
 
 const register = (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
     if (!req.body.email || !req.body.password) {
         return res.status(400).json({
             status: 400,
@@ -42,10 +38,6 @@ const register = (req, res) => {
 }
 
 const login = (req,res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
     if (!req.body.email || !req.body.password) {
         return res.status(400).json({ status: 400, message: 'Please enter your email and password' });
     }
@@ -74,10 +66,6 @@ const login = (req,res) => {
 }
 
 const logout = (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   
     req.session.destroy((err) => {
         if (err) return res.status(500).json({ status: 500, message: 'Something went wrong. Please try again' });
