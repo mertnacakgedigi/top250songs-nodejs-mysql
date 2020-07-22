@@ -1,4 +1,5 @@
 const getList = (req,res) => {
+    res.set('Access-Control-Allow-Origin', '*')
     var sql="SELECT songs.id,songs.name,songs.artist,songs.image,COUNT(ratings.rating) as c,ratings.rating as r, AVG(ratings.rating) as a FROM songs LEFT JOIN ratings ON ratings.song_id=songs.id GROUP BY songs.name ORDER BY a desc"
     db.query(sql,(err,result)=>{
         if (err) return res.status(500).json({ status: 500, message: err })
