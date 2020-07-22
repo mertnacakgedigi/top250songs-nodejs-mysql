@@ -67,7 +67,7 @@ app.use(function (req, res, next) {
 });
  
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 
             // Logging with Morgan
 app.use(morgan('tiny'))
