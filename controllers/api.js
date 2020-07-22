@@ -1,16 +1,4 @@
 const getList = (req,res) => {
-       // Website you wish to allow to connect
-       res.setHeader('Access-Control-Allow-Origin', '*');
-
-       // Request methods you wish to allow
-       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-   
-       // Request headers you wish to allow
-       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-   
-       // Set to true if you need the website to include cookies in the requests sent
-       // to the API (e.g. in case you use sessions)
-       res.setHeader('Access-Control-Allow-Credentials', true);
 
     var sql="SELECT songs.id,songs.name,songs.artist,songs.image,COUNT(ratings.rating) as c,ratings.rating as r, AVG(ratings.rating) as a FROM songs LEFT JOIN ratings ON ratings.song_id=songs.id GROUP BY songs.name ORDER BY a desc"
     db.query(sql,(err,result)=>{
