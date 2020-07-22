@@ -47,18 +47,6 @@ con.connect();
 
 global.db = con;
 
-app.use(cors(corsOptions))
-
-            // Logging with Morgan
-app.use(morgan('tiny'))
-  
-
-app.set('port', process.env.PORT || 8080);
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-
-
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -78,6 +66,19 @@ app.use(function (req, res, next) {
     next();
 });
  
+
+app.use(cors(corsOptions))
+
+            // Logging with Morgan
+app.use(morgan('tiny'))
+  
+
+app.set('port', process.env.PORT || 8080);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
+
 
 app.get('/', (req, res) => {
     res.send('<h1>Testing</h1>')
