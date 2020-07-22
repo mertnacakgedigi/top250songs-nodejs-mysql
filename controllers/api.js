@@ -25,6 +25,7 @@ const postRating = (req,res) => {
 }
 
 const getUserRating = (req,res) => {
+    res.set('Access-Control-Allow-Origin', '*')
    var sql = `SELECT songs.id as song_id,songs.name,songs.artist,COUNT(ratings.rating) as c,ratings.rating as r, AVG(ratings.rating) as a, ratings.user_id FROM songs LEFT JOIN ratings ON ratings.song_id=songs.id Right Join ratings as ra on ratings.user_id =${req.body.user_id} GROUP BY songs.name ORDER BY a desc`
     db.query(sql,(err,result) => {
         if (err) return res.status(500).json({ status: 500, message: err })
