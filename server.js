@@ -11,10 +11,10 @@ const MySQLStore = require('express-mysql-session')(session);
 const PORT = process.env.PORT || 3030;
 
 const corsOptions = {
-    origin: [`http://localhost:3000`,"https://www.top250songs.com","http://www.top250songs.com/"],
-    credentials: true, // allows the session cookie to be sent back and forth from server to client
-    optionsSuccessStatus: 200 // some legacy browsers choke on status 204
-}
+    origin: true,
+    credentials: true
+  }
+app.options('*', cors(corsOptions)); 
 // app.use(cors({origin : "http://localhost:3000"}))
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
