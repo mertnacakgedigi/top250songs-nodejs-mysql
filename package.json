@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon local.js",
-    "deploy": "serverless deploy"
+    "start": "nodemon server.js",
   },
   "repository": {
     "type": "git",
