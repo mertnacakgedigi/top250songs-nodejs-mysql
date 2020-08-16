@@ -18,5 +18,5 @@ CREATE TABLE ratings (
     id INT AUTO_INCREMENT PRIMARY KEY,
 	rating int,
 	user_id int,
-	song_id int,
+	song_id int
 );
